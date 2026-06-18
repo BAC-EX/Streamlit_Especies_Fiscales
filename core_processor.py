@@ -270,10 +270,10 @@ class BacExValidator:
                         ruta_pdf   = os.path.join(self.output_folder, nombre_pdf)
                         try:
                             self.client.obtener_pdf(rtn, no_doc, fecha_iso, ruta_pdf)
-                            fila["Estado_Proceso"]
+                            fila["Estado_Proceso"] += " - PDF OK"
                             print(f"  📄 PDF guardado: {nombre_pdf}")
                         except BacExError as e_pdf:
-                            fila["Estado_Proceso"]
+                            fila["Estado_Proceso"] += " - PDF FALLIDO"
                             fila["Detalle_Validacion"] += f" | PDF: {e_pdf}"
                             print(f"  ⚠️  PDF falló: {e_pdf}")
                     else:
